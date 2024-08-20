@@ -1,0 +1,13 @@
+/* DBTow Daily Task Manager */
+
+@font-face {
+    font-family: 'Cascade Mono';
+    src: url('/DailyTaskManager/assets/fonts/CascadiaMono/CascadiaMonoPL-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.header {
+    font-family: 'Cascade Mono';
+    background-color: aqua;
+}
