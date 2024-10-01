@@ -7,7 +7,11 @@
     font-style: normal;
 }
 
+body {
+    background-color: #212529;
+    color: #DEE2E6;
+}
+
 .header {
     font-family: 'Cascade Mono';
-    background-color: aqua;
 }
