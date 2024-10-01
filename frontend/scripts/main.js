@@ -1,11 +1,20 @@
-// DBTow Daily Task Manager
+// DBTow Daily Task Manager 
 
-// Updated Monday August 19th [4:40pm]
+//[Last Updated October 1st]
 console.log('main.js is running');
 
-import { createHeader } from "./components/header.js";
+import Header from "./components/header.js";
 
-const app = document.getElementById('app');
+class App {
+    constructor() {
+        this.header = new Header('app-header');
+    }
 
-const header = createHeader();
-document.body.insertBefore(header, app);
+    init() {
+        this.header.render();
+    }
+}
+
+// Create and initialize the app
+const app = new App();
+app.init();
