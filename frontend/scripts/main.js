@@ -38,7 +38,6 @@ class App {
     init() {
         this.header.render();
         this.taskList.render();
-
     }
 }
 

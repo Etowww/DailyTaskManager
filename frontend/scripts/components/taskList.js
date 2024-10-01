@@ -2,6 +2,8 @@
 
 //[Last Updated October 1st]
 
+import TaskItem from "./taskItem.js";
+
 // Exporting the TaskList class to make it available for import in other modules
 export default class TaskList {
     // Constructor is called when a new instance of TaskList is created
@@ -23,6 +25,13 @@ export default class TaskList {
         this.render();
     }
 
+    // Method to remove a task from the list
+    // It filters the tasks array, keeping all tasks except the one with the matching ID
+    removeTask(taskId) {
+        this.tasks = this.tasks.filter(task => task.id !== taskId);
+        this.render();
+    }
+
     // Method to render the task list on the web page
     render() {
         // Clear the current content of the container element to avoid duplicating tasks
@@ -34,9 +43,11 @@ export default class TaskList {
 
         // Loop through each task in the tasks array and create a list item for each task 
         this.tasks.forEach(task => {
-            const li = document.createElement('li');
-            li.textContent = task.title;
-            ul.appendChild(li);
+            // Create a new TaskItem instance for each task
+            // Pass the task object and the removeTask function (bound to this taskList instance) as arguments
+            const taskItem = new TaskItem(task, this.removeTask.bind(this));
+            
+            ul.appendChild(taskItem.render());
         });
 
         // Append the populated ul element to the container in the DOM
