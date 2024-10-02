@@ -7,6 +7,7 @@ console.log('main.js is running');
 
 import Header from "./components/header.js";
 import TaskList from "./components/taskList.js";
+import TaskForm from "./components/taskForm.js";
 
 // Define the main app class that manages the application
 class App {
@@ -17,6 +18,9 @@ class App {
 
         // Create a new TaskList instance, linking it to the HTML element with that ID
         this.taskList = new TaskList('task-list-container');
+
+        // Create a new TaskForm instance, linking it to the form container and passing the addTask method as the onSubmit callback
+        this.taskForm = new TaskForm('task-form-container', this.addTask.bind(this));
 
         // Initialize the ID counter for new task... this will ensure each task gets a unique id
         this.nextId = 1;
@@ -38,6 +42,7 @@ class App {
     init() {
         this.header.render();
         this.taskList.render();
+        this.taskForm.render();
     }
 }
 
